@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tdbrain-aperiodic-rtms"
+version = "1.0.0"
+description = "Aperiodic EEG and rTMS outcome in major depressive disorder"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Marco Manzo", email = "marco.manzo@unicampania.it"}]
+keywords = ["EEG", "aperiodic", "rTMS", "depression", "treatment response"]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+  "numpy>=1.26", "pandas>=2.1", "scipy>=1.11", "scikit-learn>=1.4",
+  "statsmodels>=0.14", "openpyxl>=3.1", "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+pipeline = ["mne>=1.6", "mne-connectivity>=0.6", "mne-icalabel>=0.6",
+            "fooof>=1.1", "networkx>=3.2"]
+# The GUI drives the whole pipeline interactively, so it needs the pipeline
+# dependencies as well as its own toolkit.
+gui = ["mne>=1.6", "mne-connectivity>=0.6", "mne-icalabel>=0.6", "fooof>=1.1",
+       "networkx>=3.2", "ttkbootstrap>=1.10", "matplotlib>=3.8",
+       "seaborn>=0.13", "patsy>=0.5"]
+# Optional. Every one of these is guarded by a try/except at import time: the GUI
+# runs without them and simply hides the corresponding feature.
+#   xgboost, shap  gradient boosting and SHAP attributions in the modelling tab
+#   bctpy          Brain Connectivity Toolbox modularity, networkx is the fallback
+#   pyobjc         macOS only, sets the Dock icon
+extras = ["xgboost>=2.0", "shap>=0.44", "bctpy>=0.6"]
+dev = ["pytest>=7.4"]
+
+[project.urls]
+Repository = "https://github.com/marcomanzo95/tdbrain-aperiodic-rtms"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+markers = ["slow: full reproduction runs, several minutes each"]
+addopts = "-m 'not slow'"
+testpaths = ["tests"]

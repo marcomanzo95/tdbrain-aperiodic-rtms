@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: If you use this software, please cite both the software and the paper.
+title: Aperiodic EEG and rTMS outcome in major depressive disorder
+abstract: >-
+  Analysis code and interactive application for the evaluation of resting EEG
+  features as predictors of response to repetitive transcranial magnetic
+  stimulation, with permutation-calibrated nulls, explicit artefact control and
+  leave-one-protocol-out transportability testing.
+type: software
+authors:
+  - family-names: Manzo
+    given-names: Marco
+    affiliation: >-
+      Department of Psychiatry, University of Campania Luigi Vanvitelli, Naples,
+      Italy; Precision Neuroscience and Neuromodulation Program, Massachusetts
+      General Hospital and Harvard Medical School, Boston, MA, USA
+  - family-names: D'Urso
+    given-names: Giordano
+    affiliation: >-
+      Department of Psychiatry, University of Campania Luigi Vanvitelli, Naples, Italy
+  - family-names: Santarnecchi
+    given-names: Emiliano
+    affiliation: >-
+      Precision Neuroscience and Neuromodulation Program, Massachusetts General
+      Hospital and Harvard Medical School, Boston, MA, USA
+repository-code: https://github.com/marcomanzo95/tdbrain-aperiodic-rtms
+license: MIT
+keywords:
+  - electroencephalography
+  - aperiodic activity
+  - transcranial magnetic stimulation
+  - major depressive disorder
+  - treatment response prediction
